@@ -17,7 +17,7 @@ public class LionTest extends TestCase {
 
     @Test
     public void testDoesHaveManeTrue() throws Exception {
-        Lion lion = new Lion("Самец");
+        Lion lion = new Lion("Самец", feline);
         boolean expected = true;
         boolean actual = lion.hasMane;
         Assert.assertEquals(expected, actual);
@@ -25,7 +25,7 @@ public class LionTest extends TestCase {
 
     @Test
     public void testDoesHaveManeFalse() throws Exception {
-        Lion lion = new Lion("Самка");
+        Lion lion = new Lion("Самка", feline);
         boolean expected = false;
         boolean actual = lion.hasMane;
         Assert.assertEquals(expected, actual);
@@ -35,7 +35,7 @@ public class LionTest extends TestCase {
     public void testDoesHaveManeException() throws Exception {
         Exception exception = null;
         try {
-            Lion lion = new Lion("Самко");
+            Lion lion = new Lion("Самко", feline);
 
         } catch (Exception ex) {
             exception = ex;
@@ -46,8 +46,8 @@ public class LionTest extends TestCase {
     }
 
     @Test
-    public void testGetKittens() {
-        Lion lion = new Lion(feline);
+    public void testGetKittens() throws Exception {
+        Lion lion = new Lion("Самец", feline);
         Integer expected = 1;
         Integer actual =  lion.getKittens();
         Assert.assertEquals(expected, actual);
@@ -55,7 +55,7 @@ public class LionTest extends TestCase {
 
     @Test
     public void testGetFood() throws Exception {
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Хищник", feline);
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         List<String> actual = lion.getFood();
         Assert.assertEquals(expected, actual);
